@@ -281,14 +281,15 @@ h4 {
     font-family: var(--font-display);
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 1.05rem;
+    font-size: .8rem;
     letter-spacing: 0.01em;
 }
 
 .nav-toggle {
     width: 48px;
     height: 48px;
-    border: 1px solid var(--c-line);
+    /* border: 1px solid var(--c-line); */
+    border: none;
     border-radius: 14px;
     background: transparent;
     display: grid;
@@ -325,6 +326,12 @@ h4 {
 
 .nav-toggle.is-open .bar:nth-child(2) {
     transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 991px) {
+    .brand {
+        font-size: 1.05rem;
+    }
 }
 
 /* ---------- 7. Menu volet (flottant) ---------- */
@@ -446,4 +453,117 @@ h4 {
 
 .menu-foot a:hover {
     color: var(--c-ink);
+}
+
+
+
+
+
+
+
+/* ---------- 8. Retour en haut ---------- */
+.to-top {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--c-ink);
+    color: var(--c-on-black);
+    display: grid;
+    place-items: center;
+    border: none;
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), visibility 0.5s, background 0.3s;
+}
+
+.to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.to-top:hover {
+    background: #000;
+    transform: translateY(-4px);
+}
+
+.to-top svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ---------- 18. Footer ---------- */
+.site-footer {
+    background: var(--c-black);
+    color: var(--c-on-black);
+    padding-block: clamp(2.5rem, 5vw, 4rem) 2rem;
+}
+
+.footer-top {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+
+    grid-template-columns: 1fr;
+}
+
+.footer-brand .brand {
+    color: var(--c-on-black);
+    font-size: 1.2rem;
+}
+
+.footer-brand p {
+    color: rgba(241, 240, 236, 0.6);
+    max-width: 30ch;
+    margin-top: 0.8rem;
+    font-size: var(--step--1);
+}
+
+.footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(241, 240, 236, 0.5);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-col a {
+    display: block;
+    padding: 0.3em 0;
+    color: var(--c-on-black);
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.4s var(--ease);
+}
+
+.footer-col a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: var(--step--1);
+    color: rgba(241, 240, 236, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media screen and (min-width: 768px) {
+    .footer-top {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
