@@ -42,4 +42,15 @@
     }
 
 
+
+    /* ---------- Retour en haut ---------- */
+    const toTop = document.querySelector(".to-top");
+    if (toTop) {
+        const onScroll = () => toTop.classList.toggle("show", window.scrollY > 600);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
+
+
 })();
